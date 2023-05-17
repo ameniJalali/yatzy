@@ -1,1 +1,1 @@
-# yatzy
+# yatzy Factoring KATA
