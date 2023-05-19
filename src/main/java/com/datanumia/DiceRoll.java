@@ -101,7 +101,8 @@ public class DiceRoll {
 	 * @return a stream of dice values with a count greater than or equal to the specified value
 	 */
 	private Stream<Integer> filterNumberOfDiceGreaterThan(int n) {
-		return counts().entrySet().stream().filter(entry -> entry.getValue() >= n).map(Entry::getKey);
+		return counts().entrySet().stream()
+				.filter(entry -> entry.getValue() >= n).map(Entry::getKey);
 
 	}
 
@@ -114,7 +115,7 @@ public class DiceRoll {
 
 		return filterNumberOfDiceGreaterThan(2)
 				.sorted(reverseOrder())
-				.collect(toList());
+				.toList();
 	}
 
 	/**
@@ -137,7 +138,7 @@ public class DiceRoll {
 	private List<Integer> sort() {
 	    return diceValues.stream()
 	            .sorted()
-	            .collect(toList());
+	            .toList();
 	}
 
 	/**

@@ -172,8 +172,8 @@ public class YatzyTests {
                 Arguments.of(16, new DiceRoll(3, 3, 5, 5, 5)),
                 Arguments.of(8, new DiceRoll(1, 1, 2, 3, 3)),
                 Arguments.of(0, new DiceRoll(1, 1, 2, 3, 4)),
-                Arguments.of(6, new DiceRoll(1, 1, 2, 2, 2))
-                // Arguments.of(0, new DiceRoll(1, 1, 1, 1, 2))
+                Arguments.of(6, new DiceRoll(1, 1, 2, 2, 2)),
+                Arguments.of(0, new DiceRoll(1, 1, 1, 1, 2))
         );
     }
 
