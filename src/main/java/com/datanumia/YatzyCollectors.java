@@ -20,9 +20,5 @@ public class YatzyCollectors {
 		return diceRoll.getDiceValues().stream().collect(Collectors.groupingBy(die -> die, Collectors.counting()));
 	}
 
-	public static Map<Integer, Long> diceCountMap(DiceRoll diceRoll) {
-
-		return YatzyCollectors.createDiceCountMap(diceRoll);
-	}
 
 }

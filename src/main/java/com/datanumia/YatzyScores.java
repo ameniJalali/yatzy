@@ -8,129 +8,137 @@ import java.util.List;
  *
  */
 
+/**
+ * The YatzyScores class provides static methods to calculate scores for various
+ * Yatzy categories based on a DiceRoll. It contains methods for scoring ones,
+ * twos, threes, fours, fives, sixes, chance, yatzy, pair, two pair, three of a
+ * kind, four of a kind, small straight, large straight, and full house.
+ */
 public class YatzyScores {
 
+	/**
+	 * Private constructor to prevent instantiation of the YatzyScores class.
+	 */
 	private YatzyScores() {
 		super();
 	}
 
 	/**
-	 * Calculates the sum of dice that have a value of 1.
-	 * 
-	 * @param diceRoll The DiceRoll object containing the values of each die.
-	 * @return The sum of dice values that equal 1.
+	 * Calculates and returns the score for ones category based on the dice values
+	 * in the DiceRoll.
+	 *
+	 * @param diceRoll the DiceRoll object containing the dice values
+	 * @return the score for ones category
 	 */
-	static int ones(DiceRoll diceRoll) {
+	public static int ones(DiceRoll diceRoll) {
 		return diceRoll.sumDiceByNumber(1, diceRoll);
 	}
 
 	/**
-	 * Calculates the sum of dice that have a value of 2.
-	 * 
-	 * @param diceRoll The DiceRoll object containing the values of each die.
-	 * @return The sum of dice values that equal 2.
+	 * Calculates and returns the score for twos category based on the dice values
+	 * in the DiceRoll.
+	 *
+	 * @param diceRoll the DiceRoll object containing the dice values
+	 * @return the score for twos category
 	 */
-	static int twos(DiceRoll diceRoll) {
+	public static int twos(DiceRoll diceRoll) {
 		return diceRoll.sumDiceByNumber(2, diceRoll);
 	}
 
 	/**
-	 * Calculates the sum of dice that have a value of 3.
-	 * 
-	 * @param diceRoll The DiceRoll object containing the values of each die.
-	 * @return The sum of dice values that equal 3.
+	 * Calculates and returns the score for threes category based on the dice values
+	 * in the DiceRoll.
+	 *
+	 * @param diceRoll the DiceRoll object containing the dice values
+	 * @return the score for threes category
 	 */
-	static int threes(DiceRoll diceRoll) {
+	public static int threes(DiceRoll diceRoll) {
 		return diceRoll.sumDiceByNumber(3, diceRoll);
 	}
 
 	/**
-	 * Calculates the sum of dice that have a value of 4.
-	 * 
-	 * @param diceRoll The DiceRoll object containing the values of each die.
-	 * @return The sum of dice values that equal 4.
+	 * Calculates and returns the score for fours category based on the dice values
+	 * in the DiceRoll.
+	 *
+	 * @param diceRoll the DiceRoll object containing the dice values
+	 * @return the score for fours category
 	 */
-	static int fours(DiceRoll diceRoll) {
+	public static int fours(DiceRoll diceRoll) {
 		return diceRoll.sumDiceByNumber(4, diceRoll);
 	}
 
 	/**
-	 * Calculates the sum of dice that have a value of 5.
-	 * 
-	 * @param diceRoll The DiceRoll object containing the values of each die.
-	 * @return The sum of dice values that equal 5.
+	 * Calculates and returns the score for fives category based on the dice values
+	 * in the DiceRoll.
+	 *
+	 * @param diceRoll the DiceRoll object containing the dice values
+	 * @return the score for fives category
 	 */
-	static int fives(DiceRoll diceRoll) {
+	public static int fives(DiceRoll diceRoll) {
 		return diceRoll.sumDiceByNumber(5, diceRoll);
 	}
 
 	/**
-	 * Calculates the sum of dice that have a value of 6.
-	 * 
-	 * @param diceRoll The DiceRoll object containing the values of each die.
-	 * @return The sum of dice values that equal 6.
+	 * Calculates and returns the score for sixes category based on the dice values
+	 * in the DiceRoll.
+	 *
+	 * @param diceRoll the DiceRoll object containing the dice values
+	 * @return the score for sixes category
 	 */
-	static int sixes(DiceRoll diceRoll) {
+	public static int sixes(DiceRoll diceRoll) {
 		return diceRoll.sumDiceByNumber(6, diceRoll);
 	}
 
 	/**
-	 * Calculates the score for the "Chance" category in a game of Yatzy. This
-	 * category's score is the sum of all dice in the DiceRoll object.
+	 * Calculates and returns the score for chance category based on the dice values
+	 * in the DiceRoll.
 	 *
-	 * @param diceRoll The DiceRoll object that contains the values of the dice roll
-	 * @return The score for the "Chance" category which is the sum of all dice
-	 *         values
+	 * @param diceRoll the DiceRoll object containing the dice values
+	 * @return the score for chance category
 	 */
-
 	public static int chance(DiceRoll diceRoll) {
 		return diceRoll.sum();
 	}
 
 	/**
-	 * Calculates the score for the "Yatzy" category in a game of Yatzy. If all dice
-	 * have the same number (5 dice with the same value), the score is 50.
-	 * Otherwise, the score is 0.
+	 * Calculates and returns the score for yatzy category based on the dice values
+	 * in the DiceRoll.
 	 *
-	 * @param diceRoll The DiceRoll object that contains the values of the dice roll
-	 * @return The score for the "Yatzy" category, either 50 if all dice have the
-	 *         same value, or 0 otherwise
+	 * @param diceRoll the DiceRoll object containing the dice values
+	 * @return 50 if the dice values represent a yatzy, 0 otherwise
 	 */
-
 	public static int yatzy(DiceRoll diceRoll) {
-		if (diceRoll.isYatzy(diceRoll)) {
+		if (diceRoll.isYatzy()) {
 			return 50;
 		}
 		return 0;
 	}
 
 	/**
-	 * Calculates the score for the "Pair" category in a game of Yatzy. The score is
-	 * twice the value of the highest pair (the pair with the highest value). If
-	 * there are no pairs, the score is 0.
+	 * Calculates and returns the score for pair category based on the dice values
+	 * in the DiceRoll.
 	 *
-	 * @param diceRoll The DiceRoll object that contains the values of the dice roll
-	 * @return The score for the "Pair" category, which is twice the value of the
-	 *         highest pair, or 0 if there are no pairs
+	 * @param diceRoll the DiceRoll object containing the dice values
+	 * @return the score for pair category
 	 */
 	static int pair(DiceRoll diceRoll) {
-
-		return diceRoll.getDiceWithCountGreaterThan(diceRoll, 2);
+		List<Integer> pairs = diceRoll.findPairs();
+		if (pairs.isEmpty()) {
+			return 0;
+		} else {
+			return pairs.get(0) * 2;
+		}
 	}
 
 	/**
-	 * Calculates the score for the "Two Pair" category in a game of Yatzy. The
-	 * score is the sum of the values of the two highest pairs, multiplied by 2. If
-	 * there are not at least two pairs, the score is 0.
+	 * Calculates and returns the score for two pair category based on the dice
+	 * values in the DiceRoll.
 	 *
-	 * @param diceRoll The DiceRoll object that contains the values of the dice roll
-	 * @return The score for the "Two Pair" category, which is the sum of the values
-	 *         of the two highest pairs multiplied by 2, or 0 if there are less than
-	 *         two pairs
+	 * @param diceRoll the DiceRoll object containing the dice values
+	 * @return the score for two pair category
 	 */
 	static int twoPair(DiceRoll diceRoll) {
-		List<Integer> pairs = diceRoll.findPairs(diceRoll);
-
+		List<Integer> pairs = diceRoll.findPairs();
 		if (pairs.size() >= 2) {
 			return pairs.stream().mapToInt(pair -> pair * 2).sum();
 		}
@@ -138,47 +146,35 @@ public class YatzyScores {
 	}
 
 	/**
-	 * Calculates the score for the "Three of a Kind" category in a game of Yatzy.
-	 * The score is three times the value of the dice that appear three times. If
-	 * there are no such dice, the score is 0.
+	 * Calculates and returns the score for three of a kind category based on the
+	 * dice values in the DiceRoll.
 	 *
-	 * @param diceRoll The DiceRoll object that contains the values of the dice roll
-	 * @return The score for the "Three of a Kind" category, which is three times
-	 *         the value of the dice that appear three times, or 0 if there are no
-	 *         such dice
+	 * @param diceRoll the DiceRoll object containing the dice values
+	 * @return the score for three of a kind category
 	 */
 	static int threeOfAKind(DiceRoll diceRoll) {
-
-		return diceRoll.getDiceWithCountGreaterThan(diceRoll, 3);
+		return diceRoll.getDiceWithCountGreaterThan(3) * 3;
 	}
 
 	/**
-	 * Calculates the score for the "Four of a Kind" category in a game of Yatzy.
-	 * The score is four times the value of the dice that appear four times. If
-	 * there are no such dice, the score is 0.
+	 * Calculates and returns the score for four of a kind category based on the
+	 * dice values in the DiceRoll.
 	 *
-	 * @param diceRoll The DiceRoll object that contains the values of the dice roll
-	 * @return The score for the "Four of a Kind" category, which is four times the
-	 *         value of the dice that appear four times, or 0 if there are no such
-	 *         dice
+	 * @param diceRoll the DiceRoll object containing the dice values
+	 * @return the score for four of a kind category
 	 */
 	static int fourOfAKind(DiceRoll diceRoll) {
-
-		return diceRoll.getDiceWithCountGreaterThan(diceRoll, 4);
-
+		return diceRoll.getDiceWithCountGreaterThan(4) * 4;
 	}
 
 	/**
-	 * Calculates the score for the "Small Straight" category in a game of Yatzy. A
-	 * small straight is a sequence of numbers from 1 to 5. The score is 15 for a
-	 * small straight. If the dice do not form a small straight, the score is 0.
+	 * Calculates and returns the score for small straight category based on the
+	 * dice values in the DiceRoll.
 	 *
-	 * @param diceRoll The DiceRoll object that contains the values of the dice roll
-	 * @return The score for the "Small Straight" category, which is 15 if the dice
-	 *         form a small straight, or 0 if they do not
+	 * @param diceRoll the DiceRoll object containing the dice values
+	 * @return 15 if the dice values represent a small straight, 0 otherwise
 	 */
 	static int smallStraight(DiceRoll diceRoll) {
-
 		if (diceRoll.isSmallStraight()) {
 			return 15;
 		}
@@ -186,36 +182,28 @@ public class YatzyScores {
 	}
 
 	/**
-	 * Calculates the score for the "Large Straight" category in a game of Yatzy. A
-	 * large straight is a sequence of numbers from 2 to 6. The score is 20 for a
-	 * large straight. If the dice do not form a large straight, the score is 0.
+	 * Calculates and returns the score for large straight category based on the
+	 * dice values in the DiceRoll.
 	 *
-	 * @param diceRoll The DiceRoll object that contains the values of the dice roll
-	 * @return The score for the "Large Straight" category, which is 20 if the dice
-	 *         form a large straight, or 0 if they do not
+	 * @param diceRoll the DiceRoll object containing the dice values
+	 * @return 20 if the dice values represent a large straight, 0 otherwise
 	 */
 	static int largeStraight(DiceRoll diceRoll) {
-
 		if (diceRoll.isLargeStraight()) {
 			return 20;
 		}
 		return 0;
-
 	}
 
 	/**
-	 * Calculates the score for the "Full House" category in a game of Yatzy. A full
-	 * house is a roll where there are three of one number and two of another. The
-	 * score is the total of all the dice. If the dice do not form a full house, the
-	 * score is 0.
+	 * Calculates and returns the score for full house category based on the dice
+	 * values in the DiceRoll.
 	 *
-	 * @param diceRoll The DiceRoll object that contains the values of the dice roll
-	 * @return The score for the "Full House" category, which is the sum of all the
-	 *         dice if they form a full house, or 0 if they do not
+	 * @param diceRoll the DiceRoll object containing the dice values
+	 * @return the score for full house category
 	 */
 	static int fullHouse(DiceRoll diceRoll) {
-
-		if (diceRoll.isFullHouse(diceRoll)) {
+		if (diceRoll.isFullHouse()) {
 			return diceRoll.sum();
 		}
 		return 0;
